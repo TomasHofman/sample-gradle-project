@@ -1,3 +1,5 @@
 rootProject.name = 'sample-gradle-project'
 
 include 'subproject'
+
+enableFeaturePreview('STABLE_PUBLISHING')
