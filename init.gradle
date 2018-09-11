@@ -1,7 +1,10 @@
 initscript {
     repositories {
         mavenLocal()
-        mavenCentral()
+        maven {
+            name "PNC"
+            url System.getProperty('AProxDependencyUrl')
+        }
     }
 
     dependencies {
