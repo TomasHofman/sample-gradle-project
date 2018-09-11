@@ -42,9 +42,22 @@ allprojects {
             }
         }
 
-        /*repositories {
-            mavenLocal()
-        }*/
+        repositories {
+            // publishing in PNC
+            if (hasProperty('AProxDeployUrl')) {
+                maven {
+                    name = "PNC"
+                    url = System.getProperty('AProxDeployUrl')
+                    credentials(HttpHeaderCredentials) {
+                        name = "Authorization"
+                        value = "Bearer " + System.getProperty('accessToken')
+                    }
+                    authentication {
+                        header(HttpHeaderAuthentication)
+                    }
+                }
+            }
+        }
     }
 }
 
