@@ -1,7 +1,7 @@
 initscript {
     repositories {
         mavenLocal()
-        if (hasProperty('AProxDependencyUrl')) {
+        if (System.getProperty('AProxDependencyUrl') != null) {
             maven {
                 name = 'PNC'
                 url = System.getProperty('AProxDependencyUrl')

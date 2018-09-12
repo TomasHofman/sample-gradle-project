@@ -44,7 +44,7 @@ allprojects {
 
         repositories {
             // publishing in PNC
-            if (hasProperty('AProxDeployUrl')) {
+            if (System.getProperty('AProxDeployUrl') != null) {
                 maven {
                     name = "PNC"
                     url = System.getProperty('AProxDeployUrl')
@@ -87,7 +87,6 @@ configurations.compile.resolvedConfiguration.firstLevelModuleDependencies.findAl
     it.setVersion(it.getVersion() + "-redhat-1")
     println it
 }}*/
-
 
 // following will resolve configurations.compile during build config phase, causing any further manipulation
 // of dependencies to fail with "Cannot change dependencies of configuration ':compile' after it has been resolved."
